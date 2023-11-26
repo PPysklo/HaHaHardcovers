@@ -2,9 +2,11 @@
 
 {% block stuff %}
     {% for book in books %}
-    <div style="margin: 2px 2px 2px 2px; border:1px solid black">
-        <p>{{book.title}}</p> <br>
-        <p>{{book.description}}</p>
-    </div>
+    <li>
+        <img src="#" alt="Book 1">
+      <a class="read-more-button" href="#">
+        {{book.title}}
+      </a>
+    </li>
     {% endfor %}
 {% endblock %}
