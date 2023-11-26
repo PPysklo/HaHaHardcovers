@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaHaHardcovers</title>
+    <link rel="stylesheet" href="{% static 'styles\style.css' %}">
+</head>
+<body>
+    <header>
+        <h1 class="navbar-brand">HaHaHardcovers</h1>
+            <form class="form-inline">
+                <button style="display: block; margin-left: auto;" type="button" class="btn btn-outline-dark">Zaloguj</button>
+            </form>
+    </header>
+
+    <nav>
+        <a href="#">Strona Główna</a>
+        <a href="#">Książki</a>
+        <a href="#">Ebooki</a>
+        <a href="#">Bestsellery</a>
+        <a href="#">🏷️Promocje</a>
+        <a href="#">Kontakt</a>
+        <a href="#">🛒Koszyk</a>
+    </nav>
+
+    <nav>
+        <a>
+            <input type="search" placeholder="Search" aria-label="Search">
+            <button type="submit">Search</button>
+          </form>
+      </a>
+    </nav>
+
+    <aside>
+        <h2>Kategorie Książek</h2>
+        <ul>
+            <li><a href="#">Fantastyka</a></li>
+            <li><a href="#">Dramat</a></li>
+            <li><a href="#">Naukowe</a></li>
+            <!-- Dodaj więcej kategorii według potrzeb -->
+        </ul>
+    </aside>
+
+    <section>
+        
+        <h2>Witaj w naszej księgarni!</h2>
+        <p>Tutaj znajdziesz interesujące ksiązki.</p>
+
+        <div style="margin: 2px 2px 2px 2px; border: 2px solid black">
+            {% block stuff %}
+            
+            {% endblock stuff %}
+        </div>
+
+    </section>
+
+    <footer>
+        &copy; 2023 Moja Strona Główna
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block stuff %}
+    {% for book in books %}
+    <div style="margin: 2px 2px 2px 2px; border:1px solid black">
+        <p>{{book.title}}</p> <br>
+        <p>{{book.description}}</p>
+    </div>
+    {% endfor %}
+{% endblock %}
