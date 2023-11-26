@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HaHaHardcovers</title>
     <link rel="stylesheet" href="{% static 'styles\style.css' %}">
+    <title>HaHaHardcovers</title>
+
 </head>
 <body>
     <header>
@@ -16,18 +17,26 @@
     </header>
 
     <nav>
-        <a href="#">Strona Główna</a>
-        <a href="#">Książki</a>
-        <a href="#">Ebooki</a>
-        <a href="#">Bestsellery</a>
+        <a href="#">🏠Strona Główna</a>
+        <a href="#">📚Książki</a>
+        <a href="#">💻Ebooki</a>
+        <a href="#">📢Bestsellery</a>
         <a href="#">🏷️Promocje</a>
-        <a href="#">Kontakt</a>
+        <a href="#">📞Kontakt</a>
         <a href="#">🛒Koszyk</a>
     </nav>
 
-    <nav>
+    <nav id="searchBanner1">
         <a>
-            <input type="search" placeholder="Search" aria-label="Search">
+            <input type="text" id="searchInput1" placeholder="Search..." placeholder="Search">
+            <button type="submit">Search</button>
+          </form>
+      </a>
+    </nav>
+
+    <nav id="searchBanner">
+        <a>
+            <input type="text" id="searchInput" placeholder="Search..." placeholder="Search">
             <button type="submit">Search</button>
           </form>
       </a>
@@ -39,26 +48,40 @@
             <li><a href="#">Fantastyka</a></li>
             <li><a href="#">Dramat</a></li>
             <li><a href="#">Naukowe</a></li>
+            <li><a href="#">Dla dzieci</a></li>
             <!-- Dodaj więcej kategorii według potrzeb -->
         </ul>
     </aside>
-
-    <section>
-        
-        <h2>Witaj w naszej księgarni!</h2>
-        <p>Tutaj znajdziesz interesujące ksiązki.</p>
-
-        <div style="margin: 2px 2px 2px 2px; border: 2px solid black">
-            {% block stuff %}
-            
-            {% endblock stuff %}
-        </div>
-
-    </section>
+    <section class="trend-section">
+        <h2>Popularne</h2>
+            <ul id="popular-book-list">
+                {% block stuff %}
+              
+              {% endblock stuff %}
+            </ul>
+          </section>
+        </ul>
+      </section>
 
     <footer>
-        &copy; 2023 Moja Strona Główna
+        &copy; 2023 HaHaHardcovers
     </footer>
 
 </body>
 </html>
+
+<script>
+     window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+    var searchBanner = document.getElementById("searchBanner");
+    if (document.body.scrollTop > 170 || document.documentElement.scrollTop > 170) {
+        searchBanner.style.display = "block";
+        searchBanner.style.opacity = "1";
+        searchBanner.style.transform = "translateY(0)";
+    } else {
+        searchBanner.style.opacity = "0";
+        searchBanner.style.transform = "translateY(-100%)";
+    }
+    }
+  </script>

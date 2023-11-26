@@ -13,6 +13,9 @@ header {
     padding: 10px;
     text-align: center;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav {
@@ -48,4 +51,86 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+#searchBanner {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background-color: #f1f1f1;
+padding: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+z-index: 1000;
+opacity: 0;
+transform: translateY(-100%);
+transition: opacity 0.5s, transform 0.5s;
+}
+
+#searchInput {
+    width: 80%;
+    padding: 8px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#searchBanner1 {
+    display: inline-block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#searchInput1 {
+    vertical-align: top;
+    width: 80%;
+    padding: 8px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.trend-section li{
+    background-color: rgba(128, 128, 128, 0.5);
+}
+.trend-section li img,
+.trend-section li a {
+    opacity: 1;
+}
+#popular-book-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+#popular-book-list img {
+    width: 50%;
+    height: 50%;
+}
+.read-more-button {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: black;
+    opacity: .8;
+    padding: 3px 8px;
+    border-radius: 5px;
+    transition: 1s;
+}
+
+.read-more-button:hover {
+    background-color: #555;
+}
+@media (max-width: 768px) {
+    #popular-book-list {
+    grid-template-columns: repeat(2, 1fr);
+    }
 }
