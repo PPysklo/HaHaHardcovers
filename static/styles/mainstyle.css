@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     display: flex;
     flex-wrap: wrap;
 }
 
 header {
-    background-color: #333;
+    background-color: #491e66;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -21,7 +23,7 @@ header {
 nav {
     display: flex;
     justify-content: center;
-    background-color: #555;
+    background-color: #9c86aa;
     padding: 10px;
     width: 100%;
 }
@@ -33,9 +35,10 @@ nav a {
 }
 
 aside {
-    background-color: #ddd;
+    background-color: #edd5fc;
     padding: 10px;
     width: 200px;
+    height: 100vh;
 }
 
 section {
@@ -44,7 +47,7 @@ section {
 }
 
 footer {
-    background-color: #333;
+    background-color: #491e66;
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -74,12 +77,26 @@ transition: opacity 0.5s, transform 0.5s;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+#Button1{
+    font-family: 'Montserrat', sans-serif;
+    background: #9c86aa;
+    border: none;
+    padding: 8px 22px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#Button1:active{
+    transform: scale(0.9);
+}
+
 #searchBanner1 {
     display: inline-block;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #f1f1f1;
+    background-color: white;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -94,7 +111,7 @@ transition: opacity 0.5s, transform 0.5s;
     border-radius: 4px;
 }
 .trend-section li{
-    background-color: rgba(128, 128, 128, 0.5);
+    background-color:#9c86aa;
 }
 .trend-section li img,
 .trend-section li a {
@@ -119,7 +136,7 @@ transition: opacity 0.5s, transform 0.5s;
     margin-top: 10px;
     text-decoration: none;
     color: #fff;
-    background-color: black;
+    background-color: #491e66;
     opacity: .8;
     padding: 3px 8px;
     border-radius: 5px;
@@ -127,7 +144,7 @@ transition: opacity 0.5s, transform 0.5s;
 }
 
 .read-more-button:hover {
-    background-color: #555;
+    background-color: #9c86aa;
 }
 @media (max-width: 768px) {
     #popular-book-list {

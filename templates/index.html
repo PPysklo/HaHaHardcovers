@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'styles\style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'styles\mainstyle.css' %}">
     <title>HaHaHardcovers</title>
 
 </head>
 <body>
     <header>
         <h1 class="navbar-brand">HaHaHardcovers</h1>
-            <form class="form-inline">
-                <button style="display: block; margin-left: auto;" type="button" class="btn btn-outline-dark">Zaloguj</button>
-            </form>
+        <form action="{% url 'login_form' %}" method="get">
+            <button id="Button1">Zaloguj</button>
+        </form>
     </header>
 
     <nav>
@@ -29,7 +30,7 @@
     <nav id="searchBanner1">
         <a>
             <input type="text" id="searchInput1" placeholder="Search..." placeholder="Search">
-            <button type="submit">Search</button>
+            <button id="Button1" type="submit">Search</button>
           </form>
       </a>
     </nav>
@@ -37,7 +38,7 @@
     <nav id="searchBanner">
         <a>
             <input type="text" id="searchInput" placeholder="Search..." placeholder="Search">
-            <button type="submit">Search</button>
+            <button id="Button1" type="submit">Search</button>
           </form>
       </a>
     </nav>
