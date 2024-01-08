@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'styles\mainstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'styles\mainstyl.css' %}">
     <title>HaHaHardcovers</title>
 
 </head>
 <body>
     <header>
         <h1 class="navbar-brand">HaHaHardcovers</h1>
-        <form action="{% url 'login_form' %}" method="get">
             <button id="Button1">Zaloguj</button>
         </form>
     </header>
@@ -43,16 +42,17 @@
       </a>
     </nav>
 
-    <aside>
-        <h2>Kategorie Książek</h2>
-        <ul>
-            <li><a href="#">Fantastyka</a></li>
-            <li><a href="#">Dramat</a></li>
-            <li><a href="#">Naukowe</a></li>
-            <li><a href="#">Dla dzieci</a></li>
-            <!-- Dodaj więcej kategorii według potrzeb -->
-        </ul>
-    </aside>
+    <div class="sidebar">
+        <div class="top">
+            <h2>Kategorie Książek</h2>
+            <ul>
+                <li><a class="category_bar_element" href="#">Fantastyka</a></li>
+                <li><a class="category_bar_element" href="#">Dramat</a></li>
+                <li><a class="category_bar_element" href="#">Naukowe</a></li>
+                <li><a class="category_bar_element" href="#">Dla dzieci</a></li>
+            </ul>
+        </div>
+    </div>
     <section class="trend-section">
         <h2>Popularne</h2>
             <ul id="popular-book-list">
