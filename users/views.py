@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 
+from . import forms
 
 # Create your views here.
 
@@ -19,3 +20,13 @@ def loginUser(request):
             user = User.objects.get(username=username)
         except:
             messages.error(request, 'Username does not exits')
+            
+
+def captchaTest(request):
+    form = forms.FormWithCaptcha()
+    context = {"form" : form}
+    
+    if form.is_valid:
+        return render(request,'loginform.html', context)
+    
+    

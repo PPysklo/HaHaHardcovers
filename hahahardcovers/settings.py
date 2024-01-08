@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     'users.apps.UsersConfig',
     'stuff.apps.StuffConfig',
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+RECAPTCHA_PUBLIC_KEY = '6LemLEopAAAAAJYdYmbUUKcecUtx0kG_kMME9esa'
+RECAPTCHA_PRIVATE_KEY = '6LemLEopAAAAAL48g6YBvHSjzs5N80EPXqIbZk4x'
