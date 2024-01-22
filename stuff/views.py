@@ -6,6 +6,14 @@ from django.views.generic.list import ListView
 
 from .models import Books
 
+
+def test1View(request):
+    return render(request, 'test1.html')
+
+def test2View(request):
+    return render(request, 'test2.html')
+
+
 def stuffList(request):
     
     books = Books.objects.all()
@@ -20,8 +28,8 @@ def stuffList(request):
 #     model = Books
     
     
-class BooksDetail(DetailView):
-    model = Books
+# class BooksDetail(DetailView):
+#     model = Books
     
 
 def addBook(request):
