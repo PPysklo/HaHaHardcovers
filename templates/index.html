@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'styles\style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'styles\mainstyl.css' %}">
     <title>HaHaHardcovers</title>
 
 </head>
+
 <body>
     <header>
         <h1 class="navbar-brand">HaHaHardcovers</h1>
-            <form class="form-inline">
-                <button style="display: block; margin-left: auto;" type="button" class="btn btn-outline-dark">Zaloguj</button>
-            </form>
+        {% if user.is_authenticated %}
+        <button>
+            <a href="{% url 'users:logout' %}">Wyloguj</a>
+        </button>
+        {% else %}
+        <button>
+            <a href="{% url 'users:login' %}">Zaloguj</a>
+        </button>
+        {% endif %}
     </header>
 
     <nav>
@@ -29,59 +38,61 @@
     <nav id="searchBanner1">
         <a>
             <input type="text" id="searchInput1" placeholder="Search..." placeholder="Search">
-            <button type="submit">Search</button>
-          </form>
-      </a>
+            <button id="Button1" type="submit">Search</button>
+            </form>
+        </a>
     </nav>
 
     <nav id="searchBanner">
         <a>
             <input type="text" id="searchInput" placeholder="Search..." placeholder="Search">
-            <button type="submit">Search</button>
-          </form>
-      </a>
+            <button id="Button1" type="submit">Search</button>
+            </form>
+        </a>
     </nav>
 
-    <aside>
-        <h2>Kategorie Książek</h2>
-        <ul>
-            <li><a href="#">Fantastyka</a></li>
-            <li><a href="#">Dramat</a></li>
-            <li><a href="#">Naukowe</a></li>
-            <li><a href="#">Dla dzieci</a></li>
-            <!-- Dodaj więcej kategorii według potrzeb -->
-        </ul>
-    </aside>
+    <div class="sidebar">
+        <div class="top">
+            <h2>Kategorie Książek</h2>
+            <ul>
+                <li><a class="category_bar_element" href="#">Fantastyka</a></li>
+                <li><a class="category_bar_element" href="#">Dramat</a></li>
+                <li><a class="category_bar_element" href="#">Naukowe</a></li>
+                <li><a class="category_bar_element" href="#">Dla dzieci</a></li>
+            </ul>
+        </div>
+    </div>
     <section class="trend-section">
         <h2>Popularne</h2>
-            <ul id="popular-book-list">
-                {% block stuff %}
-              
-              {% endblock stuff %}
-            </ul>
-          </section>
+        <ul id="popular-book-list">
+            {% block stuff %}
+
+            {% endblock stuff %}
         </ul>
-      </section>
+    </section>
+    </ul>
+    </section>
 
     <footer>
         &copy; 2023 HaHaHardcovers
     </footer>
 
 </body>
+
 </html>
 
 <script>
-     window.onscroll = function() {scrollFunction()};
+    window.onscroll = function () { scrollFunction() };
 
     function scrollFunction() {
-    var searchBanner = document.getElementById("searchBanner");
-    if (document.body.scrollTop > 170 || document.documentElement.scrollTop > 170) {
-        searchBanner.style.display = "block";
-        searchBanner.style.opacity = "1";
-        searchBanner.style.transform = "translateY(0)";
-    } else {
-        searchBanner.style.opacity = "0";
-        searchBanner.style.transform = "translateY(-100%)";
+        var searchBanner = document.getElementById("searchBanner");
+        if (document.body.scrollTop > 170 || document.documentElement.scrollTop > 170) {
+            searchBanner.style.display = "block";
+            searchBanner.style.opacity = "1";
+            searchBanner.style.transform = "translateY(0)";
+        } else {
+            searchBanner.style.opacity = "0";
+            searchBanner.style.transform = "translateY(-100%)";
+        }
     }
-    }
-  </script>
+</script>

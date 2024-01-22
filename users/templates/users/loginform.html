@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'styles\loginstyle.css' %}">
+    <title>Logowanie</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-in">
+            <form method='POST'>
+                {% csrf_token %}
+                <h1>Zaloguj się!</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+                <span>lub skorzystaj z danych użytkownika</span>
+
+
+                
+                <input class="input input--text" id="formInput#text" 
+                    type="text" name="username"
+                    placeholder="Enter your username..." />
+
+
+                <input class="input input--password" id="formInput#passowrd" 
+                    type="password" name="password"
+                    placeholder="••••••••" />
+
+
+                {% for error in field.errors %}
+                <p style="color: red;">{{error}}</p>
+                {% endfor %}
+
+                <a href="#">Zapomniałeś hasła?</a>
+                <button type="submit">Zaloguj</button>
+                <button type="submit">Wróć na stronę główną</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-right">
+                    <h1>Witaj!</h1>
+                    <p>Jesteś poraz pierwszy na naszej stronie? Stwórz konto!</p>
+                    <button class="hidden" id="register"><a href="{% url 'users:register'%}">Zarejestruj</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

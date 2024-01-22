@@ -1,21 +1,77 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import get_user_model
 
+from .forms import FormWithCaptcha, CustomUserCreationForm
+# from .models import User
 
-# Create your views here.
+User = get_user_model()
+
 
 def loginUser(request):
     page = 'login'
     
     if request.user.is_authenticated:
-        return redirect('stuff:stuff-list')
-    
-    if request.method == 'POST':
+        return redirect('stuff:stuff_list')
+
+    if request.method == "POST":
+
         username = request.POST['username'].lower()
         password = request.POST['password']
-        
+            
         try:
             user = User.objects.get(username=username)
         except:
             messages.error(request, 'Username does not exits')
+                
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request,user)
+            return redirect(request.GET['next'] if 'next' in request.GET else 'stuff:stuff_list')
+        else:
+            messages.error(request,'Username or password is incorrect.')
+                
+    return render(request, 'users/loginform.html')
+
+def logOut(request):
+    
+    logout(request) 
+    messages.info(request,'User was logget out')
+    
+    return redirect('users:login')
+
+
+def registerUser(request):
+    page = 'register'
+    
+    captcha = FormWithCaptcha()
+    form = CustomUserCreationForm()
+    
+    if request.method == "POST":
+        print("cos")
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+
+            messages.success(request, 'User account was created!')
+                
+            login(request, user)
+            return redirect('stuff:stuff_list')
+            
+        else:
+            messages.success(request, 'An error has occurred during registration')
+
+    context = {'page': page, 'form': form, "captcha" : captcha}
+    
+    return render(request, 'users/register.html', context)
+
+
+
+    
+    
+
+    
