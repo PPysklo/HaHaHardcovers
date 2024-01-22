@@ -4,5 +4,7 @@ from . import views
 app_name = 'users'
 
 urlpatterns = [
-    path('',views.captchaTest,name="captcha")
+    path('login/',views.loginUser,name="login"),
+    path('register/',views.registerUser, name='register'),
+    path('logout/',views.logOut, name='logout')
 ]

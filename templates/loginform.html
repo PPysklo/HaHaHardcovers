@@ -24,17 +24,16 @@
                     <a href="#" class="icon"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
                 <span>lub skorzystaj z rejestracji za pomocą adresu Email</span>
-                <input type="text" placeholder="Nazwa użytkownika">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Hasło">
 
+                {{ form.username }}
                 {{ form.email }}
-                {{ form.captcha }}
-                <input type="submit" />
+                {{ form.password }}
+                {% if form.errors %}
+                    <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+                <!-- {{ captcha.captcha }} -->
 
-
-
-                <button>Zarejestruj</button>
+                <button type="submit" name="register">Zarejestruj</button>
                 <button>Wróć na stronę główną</button>
             </form>
 
@@ -51,14 +50,16 @@
                     <a href="#" class="icon"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
                 <span>lub skorzystaj z danych użytkownika</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Hasło">
 
-                {{ form.email }}
-                {{ form.captcha }}
+                {{ form.username }}
+                {{ form.password }}
+                {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+                <!-- {{ captcha.captcha }} -->
 
                 <a href="#">Zapomniałeś hasła?</a>
-                <button type="submit" >Zaloguj</button>
+                <button type="submit">Zaloguj</button>
                 <button type="submit">Wróć na stronę główną</button>
             </form>
         </div>

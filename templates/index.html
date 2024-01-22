@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{% static 'styles\mainstyle.css' %}">
+
     <title>HaHaHardcovers</title>
 
 </head>
+
 <body>
     <header>
         <h1 class="navbar-brand">HaHaHardcovers</h1>
-        <form action="{% url 'login_form' %}" method="get">
-            <button id="Button1">Zaloguj</button>
-        </form>
+        {% if user.is_authenticated %}
+        <button>
+            <a href="{% url 'users:logout' %}">Wyloguj</a>
+        </button>
+        {% else %}
+        <button>
+            <a href="{% url 'users:login' %}">Zaloguj</a>
+        </button>
+        {% endif %}
     </header>
 
     <nav>
@@ -31,16 +40,16 @@
         <a>
             <input type="text" id="searchInput1" placeholder="Search..." placeholder="Search">
             <button id="Button1" type="submit">Search</button>
-          </form>
-      </a>
+            </form>
+        </a>
     </nav>
 
     <nav id="searchBanner">
         <a>
             <input type="text" id="searchInput" placeholder="Search..." placeholder="Search">
             <button id="Button1" type="submit">Search</button>
-          </form>
-      </a>
+            </form>
+        </a>
     </nav>
 
     <aside>
@@ -55,34 +64,35 @@
     </aside>
     <section class="trend-section">
         <h2>Popularne</h2>
-            <ul id="popular-book-list">
-                {% block stuff %}
-              
-              {% endblock stuff %}
-            </ul>
-          </section>
+        <ul id="popular-book-list">
+            {% block stuff %}
+
+            {% endblock stuff %}
         </ul>
-      </section>
+    </section>
+    </ul>
+    </section>
 
     <footer>
         &copy; 2023 HaHaHardcovers
     </footer>
 
 </body>
+
 </html>
 
 <script>
-     window.onscroll = function() {scrollFunction()};
+    window.onscroll = function () { scrollFunction() };
 
     function scrollFunction() {
-    var searchBanner = document.getElementById("searchBanner");
-    if (document.body.scrollTop > 170 || document.documentElement.scrollTop > 170) {
-        searchBanner.style.display = "block";
-        searchBanner.style.opacity = "1";
-        searchBanner.style.transform = "translateY(0)";
-    } else {
-        searchBanner.style.opacity = "0";
-        searchBanner.style.transform = "translateY(-100%)";
+        var searchBanner = document.getElementById("searchBanner");
+        if (document.body.scrollTop > 170 || document.documentElement.scrollTop > 170) {
+            searchBanner.style.display = "block";
+            searchBanner.style.opacity = "1";
+            searchBanner.style.transform = "translateY(0)";
+        } else {
+            searchBanner.style.opacity = "0";
+            searchBanner.style.transform = "translateY(-100%)";
+        }
     }
-    }
-  </script>
+</script>

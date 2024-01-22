@@ -62,7 +62,8 @@ body{
 
 .container button.hidden{
     background-color: transparent;
-    border-color: #fff;
+    color: #fff;
+    background-color: #000;
 }
 
 .container form{
