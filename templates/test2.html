@@ -1,1 +1,41 @@
-<h2>fiasdhjgufkasdkuhgfhsdg</h2>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'styles\test1style.css' %}">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Admin Panel/Edit book</h1>
+            <Button id="Button1">Logout</Button>
+        </header>
+        <aside class="admin-sidebar">
+            <nav>
+                <a href="#" class="category_bar_element">Edit Book</a>
+            </nav>
+            <nav>
+                <a href="#" class="category_bar_element">Delete Book</a>
+                <!--Wiecej opcji-->
+            </nav>
+        </aside>
+        <div class="admin-div">
+            <!-- Tu co w srodku-->
+            <h2>Edytuj książkę</h2>
+            <form>
+           
+                <!--Dodanie opcji-->
+
+                <button type="submit">Edit book</button>
+            </form>
+        </div>
+        <footer class="admin-footer">
+            &copy; 2024 Admin Panel
+        </footer>
+    </div>
+</body>
+</html>

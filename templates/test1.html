@@ -1,1 +1,58 @@
-<h1>lahahahaha</h1>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'styles\test1style.css' %}">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Admin Panel/Add Book</h1>
+            <Button id="Button1">Logout</Button>
+        </header>
+        <aside class="admin-sidebar">
+            <nav>
+                <a href="#" class="category_bar_element">Edit Book</a>
+                <a href="#" class="category_bar_element">Delete Book</a>
+                <!--Wiecej opcji-->
+            </nav>
+        </aside>
+        <div class="admin-div">
+            <!-- Tu co w srodku-->
+            <h2>Dodaj nową książkę</h2>
+            <form>
+                 <div>
+                    <label for="Tytulksiazki">Tytuł:</label>
+                    <input type="text" id="Tytulksiazki" name="Tytulksiazki" required>
+                </div>
+                <div>
+                    <label for="Autorksiazki">Autor:</label>
+                    <input type="text" id="Autorksiazki" name="Autorksiazki" required>
+                </div>
+                <div>
+                    <label for="Opisksiazki">Opis:</label>
+                    <textarea id="Opisksiazki"  name="Opisksiazki" rows="4" required></textarea>
+                </div>
+                <div>
+                    <label for="Cenaksiazki">Cena:</label>
+                    <input type="text" id="Cenaksiazki" name="Cenaksiazki" required>
+                </div>
+                <div>
+                    <label for="Zdjecieksiazki">Zdjęcie:</label>
+                    <input type="file" id="Zdjecieksiazki" name="Zdjecieksiazki" accept="image/*">
+                </div>
+                <!--Dodanie opcji-->
+
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+        <footer class="admin-footer">
+            &copy; 2024 Admin Panel
+        </footer>
+    </div>
+</body>
+</html>

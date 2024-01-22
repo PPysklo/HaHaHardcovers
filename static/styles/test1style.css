@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+.admin-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+#Button1 {
+    font-family: 'Montserrat', sans-serif;
+    background: #9c86aa;
+    border: none;
+    padding: 8px 22px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.admin-header {
+    background-color: #491e66;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-logout {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.admin-sidebar {
+    background-color: #491e66;
+    padding: 10px;
+    width: 250px;
+    height: 100vh;
+}
+
+.admin-div {
+    padding: 20px;
+    flex: 1;
+}
+
+.admin-footer {
+    background-color: #491e66;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

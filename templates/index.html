@@ -14,15 +14,22 @@
 <body>
     <header>
         <h1 class="navbar-brand">HaHaHardcovers</h1>
+        <div class="header-buttons">
+            <div id="searchBanner1" class="search-bar">
+                <input type="text" id="searchInput1" placeholder="Search...">
+                <button id="Button2" type="submit">Search</button>
+            </div>
+            <a href="#" class="cart-link">🛒Koszyk</a>
         {% if user.is_authenticated %}
-        <button>
+        <button id="Button1">
             <a href="{% url 'users:logout' %}">Wyloguj</a>
         </button>
         {% else %}
-        <button>
+        <button id="Button1">
             <a href="{% url 'users:login' %}">Zaloguj</a>
         </button>
         {% endif %}
+        </div>
     </header>
 
     <nav>
@@ -32,23 +39,6 @@
         <a href="#">📢Bestsellery</a>
         <a href="#">🏷️Promocje</a>
         <a href="#">📞Kontakt</a>
-        <a href="#">🛒Koszyk</a>
-    </nav>
-
-    <nav id="searchBanner1">
-        <a>
-            <input type="text" id="searchInput1" placeholder="Search..." placeholder="Search">
-            <button id="Button1" type="submit">Search</button>
-            </form>
-        </a>
-    </nav>
-
-    <nav id="searchBanner">
-        <a>
-            <input type="text" id="searchInput" placeholder="Search..." placeholder="Search">
-            <button id="Button1" type="submit">Search</button>
-            </form>
-        </a>
     </nav>
 
     <div class="sidebar">
@@ -82,17 +72,22 @@
 </html>
 
 <script>
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-        var searchBanner = document.getElementById("searchBanner");
-        if (document.body.scrollTop > 170 || document.documentElement.scrollTop > 170) {
-            searchBanner.style.display = "block";
-            searchBanner.style.opacity = "1";
-            searchBanner.style.transform = "translateY(0)";
-        } else {
-            searchBanner.style.opacity = "0";
-            searchBanner.style.transform = "translateY(-100%)";
+    document.addEventListener("DOMContentLoaded", function() {
+        var header = document.querySelector("header");
+        var nav = document.querySelector("nav");
+        var offset = header.offsetHeight;
+    
+        function toggleFixedHeader() {
+            if (window.scrollY > offset) {
+                header.classList.add("fixed-header");
+                nav.style.marginTop = offset + "px";
+            } else {
+                header.classList.remove("fixed-header");
+                nav.style.marginTop = "0";
+            }
         }
-    }
-</script>
+    
+        window.addEventListener("scroll", toggleFixedHeader);
+        toggleFixedHeader();
+    });
+    </script>

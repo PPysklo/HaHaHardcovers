@@ -9,7 +9,7 @@ body {
     flex-wrap: wrap;
 }
 
-header {
+header{
     background-color: #491e66;
     color: #fff;
     padding: 10px;
@@ -18,7 +18,53 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    top: -100px;
+    transition: top 0.3s;
 }
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+}
+
+#searchBanner1 {
+    display: flex;
+    align-items: center;
+}
+
+#searchInput1 {
+    padding: 5px;
+    margin-right: 5px;
+    background-color: transparent;
+    color: #fff;
+}
+
+#Button2 {
+    background-color: transparent;
+    color: #fff;
+}
+
+.cart-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+#Button1 {
+    font-family: 'Montserrat', sans-serif;
+    background: #9c86aa;
+    border: none;
+    padding: 8px 22px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#Button1:active {
+    transform: scale(0.9);
+}
+
 
 nav {
     display: flex;
@@ -32,6 +78,15 @@ nav a {
     color: #fff;
     text-decoration: none;
     margin: 0 15px;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #491e66;
+    color: #fff;
 }
 
 aside {
@@ -55,61 +110,7 @@ footer {
     bottom: 0;
     width: 100%;
 }
-#searchBanner {
-display: none;
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-background-color: #f1f1f1;
-padding: 10px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-z-index: 1000;
-opacity: 0;
-transform: translateY(-100%);
-transition: opacity 0.5s, transform 0.5s;
-}
 
-#searchInput {
-    width: 80%;
-    padding: 8px;
-    margin-right: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-#Button1{
-    font-family: 'Montserrat', sans-serif;
-    background: #9c86aa;
-    border: none;
-    padding: 8px 22px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-}
-
-#Button1:active{
-    transform: scale(0.9);
-}
-
-#searchBanner1 {
-    display: inline-block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-#searchInput1 {
-    vertical-align: top;
-    width: 80%;
-    padding: 8px;
-    margin-right: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
 .trend-section li{
     background-color:#9c86aa;
 }
