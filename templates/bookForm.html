@@ -24,28 +24,16 @@
         <div class="admin-div">
             <!-- Tu co w srodku-->
             <h2>Dodaj nową książkę</h2>
-            <form>
-                 <div>
-                    <label for="Tytulksiazki">Tytuł:</label>
-                    <input type="text" id="Tytulksiazki" name="Tytulksiazki" required>
-                </div>
-                <div>
-                    <label for="Autorksiazki">Autor:</label>
-                    <input type="text" id="Autorksiazki" name="Autorksiazki" required>
-                </div>
-                <div>
-                    <label for="Opisksiazki">Opis:</label>
-                    <textarea id="Opisksiazki"  name="Opisksiazki" rows="4" required></textarea>
-                </div>
-                <div>
-                    <label for="Cenaksiazki">Cena:</label>
-                    <input type="text" id="Cenaksiazki" name="Cenaksiazki" required>
-                </div>
-                <div>
-                    <label for="Zdjecieksiazki">Zdjęcie:</label>
-                    <input type="file" id="Zdjecieksiazki" name="Zdjecieksiazki" accept="image/*">
-                </div>
-                <!--Dodanie opcji-->
+            <form method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="">
+                        <label for="">{{field.label}} </label>
+                        {{field}}
+                    </div>
+                {% endfor %}
+                
+               
 
                 <button type="submit">Add Book</button>
             </form>

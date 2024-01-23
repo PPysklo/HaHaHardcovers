@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'styles\test1style.css' %}">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Profil</h1>
+            <Button id="Button1">Logout</Button>
+        </header>
+        <aside class="admin-sidebar">
+            <nav>
+                
+            </nav>
+        </aside>
+        <div class="admin-div">
+            <!-- Tu co w srodku-->
+            <h2>Profil</h2>
+                
+                    <div class="">
+                        {{profile}}
+                    </div>
+               
+                
+               
+
+               
+            
+        </div>
+        <footer class="admin-footer">
+            &copy; 2024 Admin Panel
+        </footer>
+    </div>
+</body>
+</html>

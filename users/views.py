@@ -4,6 +4,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth import get_user_model
 
 from .forms import FormWithCaptcha, CustomUserCreationForm
+from .models import Profile
 # from .models import User
 
 User = get_user_model()
@@ -11,12 +12,12 @@ User = get_user_model()
 
 def loginUser(request):
     page = 'login'
-    
+    print(request.POST)
     if request.user.is_authenticated:
         return redirect('stuff:stuff_list')
 
-    if request.method == "POST":
-
+    if request.method == "POST" and 'login' in request.POST:
+        
         username = request.POST['username'].lower()
         password = request.POST['password']
             
@@ -70,8 +71,21 @@ def registerUser(request):
     return render(request, 'users/register.html', context)
 
 
+def userProfile(request, pk):
+    profile = Profile.objects.get(id=pk)
+    
+    
+    context = {'profile' : profile}
 
-    
-    
+    return render(request,'user_profile.html', context=context)
 
+
+'''Do wyjebania po testach z plikiem html'''
+
+def profiles(request):
+    profiles = Profile.objects.all() 
     
+    context = {
+        'profiles' : profiles}
+    
+    return render(request,'profiles.html', context=context)
