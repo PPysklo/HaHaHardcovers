@@ -60,3 +60,8 @@
     bottom: 0;
     width: 100%;
 }
+
+.category_bar_element{
+    text-decoration: none;
+    color: #fff;
+}

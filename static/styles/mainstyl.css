@@ -59,6 +59,7 @@ header{
     padding: 8px 22px;
     border-radius: 6px;
     transition: all 0.2s ease;
+    margin: 10px 10px 10px 10px;
 }
 
 #Button1:active {
