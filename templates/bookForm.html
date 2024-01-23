@@ -26,6 +26,8 @@
             <h2>Dodaj nową książkę</h2>
             <form method="POST">
                 {% csrf_token %}
+
+                
                 {% for field in form %}
                     <div class="">
                         <label for="">{{field.label}} </label>

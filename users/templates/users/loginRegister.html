@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{% static 'styles\loginstyle.css' %}">
-    <link type="text/css" href="@@path/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
 
     <title>Logowanie</title>
 </head>
@@ -31,25 +30,8 @@
                 
                 {% for field in form %}
                 {{field}}
-                {% for message in messages %}
-                        {% if message.tags != 'success' %}
-                        <!-- sweetalert js -->
-                        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                        <script>
-                            var m = "Niepoprawne dane logownia";
-                                Swal.fire({
-                                icon: 'error',
-                                text: m,
-                                confirmButtonColor: 'black',
-                                color: 'black',
-                                background: 'white',
-                                allowEscapeKey: false,
-                                showClass: {
-                                    popup: 'my-icon'                     
-                                },
-                                });
-                        </script>
-                        {% endif %}
+                    {% for error in field.errors %}
+                        <p style="color: red;">{{error}}</p>
                     {% endfor %}
                 {% endfor %}
 
@@ -110,3 +92,25 @@
 <script src="{% static 'scripts/loginscript.js' %}"></script>
 
 </html>
+
+
+{% for message in messages %}
+    {% if message.tags != 'success' %}
+            <!-- sweetalert js -->
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+            var m = "Niepoprawne dane logownia";
+            Swal.fire({
+                icon: 'error',
+                text: m,
+                confirmButtonColor: 'black',
+                color: 'black',
+                background: 'white',
+                allowEscapeKey: false,
+                showClass: {
+                popup: 'my-icon'                     
+                },
+            });
+        </script>
+    {% endif %}
+{% endfor %}
