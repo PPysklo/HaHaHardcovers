@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'stuff.apps.StuffConfig',
     'django_recaptcha',
+    'sweetify',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,5 @@ AUTH_USER_MODEL = 'users.User'
 
 RECAPTCHA_PUBLIC_KEY = '6LemLEopAAAAAJYdYmbUUKcecUtx0kG_kMME9esa'
 RECAPTCHA_PRIVATE_KEY = '6LemLEopAAAAAL48g6YBvHSjzs5N80EPXqIbZk4x'
+
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'

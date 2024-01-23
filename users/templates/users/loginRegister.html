@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load static %}
+{% load sweetify %}
+{% sweetify %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'styles\loginstyle.css' %}">
+    <link type="text/css" href="@@path/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <title>Logowanie</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form method='POST'>
+                {% csrf_token %}
+                <h1>Stwórz konto!</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+                <span>lub skorzystaj z rejestracji za pomocą adresu Email</span>
+                
+                {% for field in form %}
+                {{field}}
+                {% for message in messages %}
+                        {% if message.tags != 'success' %}
+                        <!-- sweetalert js -->
+                        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            var m = "Niepoprawne dane logownia";
+                                Swal.fire({
+                                icon: 'error',
+                                text: m,
+                                confirmButtonColor: 'black',
+                                color: 'black',
+                                background: 'white',
+                                allowEscapeKey: false,
+                                showClass: {
+                                    popup: 'my-icon'                     
+                                },
+                                });
+                        </script>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+
+            <!-- {{ captcha.captcha }} -->
+                <button type="submit" value="register" id="registerbtn"><input type="hidden" name="register">Zarejestruj</button>
+                <button>Wróć na stronę główną</button>
+            </form>
+
+        </div>
+        <div class="form-container sign-in">
+            <form method='POST'>
+                {% csrf_token %}
+                <h1>Zaloguj się!</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+                <span>lub skorzystaj z danych użytkownika</span>
+                <input class="input input--text" id="formInput#text" 
+                    type="text" name="username"
+                    placeholder="Enter your username..." />
+
+
+                <input class="input input--password" id="formInput#passowrd" 
+                    type="password" name="password"
+                    placeholder="••••••••" />
+
+
+                {% for error in field.errors %}
+                <script>alert("{{ message }}")</script>
+                    <p style="color: red;">{{error}}</p>
+                {% endfor %}
+
+                <a href="#">Zapomniałeś hasła?</a>
+                <button type="submit" value="login"><input type="hidden" name="login">Zaloguj</button>
+                <button type="submit">Wróć na stronę główną</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Witaj!</h1>
+                    <p>Jesteś już zarejestrowany? Zaloguj się!</p>
+                    <button class="hidden" id="login">Zaloguj</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Witaj!</h1>
+                    <p>Jesteś poraz pierwszy na naszej stronie? Stwórz konto!</p>
+                    <button class="hidden" id="register">Zarejestruj</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{% static 'scripts/loginscript.js' %}"></script>
+
+</html>

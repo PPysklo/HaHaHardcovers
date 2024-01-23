@@ -34,7 +34,7 @@
         </button>
         {% else %}
         <button id="Button1">
-            <a href="{% url 'users:login' %}">Zaloguj</a>
+            <a href="{% url 'users:login_Register' %}">Zaloguj/Zarejestruj</a>
         </button>
         {% endif %}
         </div>
@@ -99,3 +99,40 @@
         toggleFixedHeader();
     });
     </script>
+
+
+{% for message in messages %}
+    {% if message.tags == 'info' %}
+        <!-- sweetalert js -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            var m = "Wylogowano";
+            Swal.fire({
+            icon: 'success',
+            text: m,
+            showConfirmButton: false,
+            color: 'black',
+            background: 'white',
+            timer: 1000,
+            showClass: {
+                        popup: 'my-icon'                     
+                        },
+                });
+        </script> 
+    {% else %}
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            var m = "Pomyslnie zalogowano";
+            Swal.fire({
+            position: "top-centre",
+            icon: "success",
+            title: m,
+            showConfirmButton: false,
+            timer: 1000,
+            showClass: {
+                        popup: 'my-icon'                     
+                        },
+                });
+    </script> 
+    {% endif %}
+{% endfor %}
