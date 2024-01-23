@@ -61,6 +61,21 @@
     width: 100%;
 }
 
+.admin-add-book {
+    border: 1px solid;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+.center-div{
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 54%; 
+}
+
 .category_bar_element{
     text-decoration: none;
     color: #fff;
