@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'stuff.apps.StuffConfig',
     'django_recaptcha',
     'sweetify',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [

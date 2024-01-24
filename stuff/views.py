@@ -18,6 +18,9 @@ def test2View(request):
 def cartView(request):
     return render(request, 'cartForm.html')
 
+def navView(request):
+    return render(request, 'navbar.html')
+
 
 def stuffList(request):
     
