@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cartstyle.css">
+    <link rel="stylesheet" href="{% static 'styles\cartstyle.css' %}">
     <title>Document</title>
 </head>
 <body>
@@ -32,8 +33,6 @@
                 <hr>
                 <div class="row">
                 </div>
-                <form>
-                </form>
                 <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                     <div class="col">Łączna cena</div>
                     <div class="col text-right">PLN cena</div>

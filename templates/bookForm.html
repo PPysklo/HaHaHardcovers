@@ -27,14 +27,14 @@
             <form method="POST">
                 {% csrf_token %}
 
-                
                 {% for field in form %}
+                <div style="border: 2px solid black;">
                     <div class="admin-add-book">
                         <label for="">{{field.label}} </label>
                         {{field}}
                     </div>
+                </div>
                 {% endfor %}
-                
                
                 <div class="center-div">
                 <button type="submit" id="Button1">Add Book</button>

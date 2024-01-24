@@ -25,7 +25,8 @@ body{
     overflow: hidden;
     width: 768px;
     max-width: 100%;
-    min-height: 768px;
+    min-height: 90vh;
+    max-height: 90vh;
 }
 
 .container p{
@@ -73,7 +74,8 @@ body{
     justify-content: center;
     flex-direction: column;
     padding: 0 40px;
-    height: 100%;
+    min-height: 90vh;
+    max-height: 90vh;
 }
 
 .container input{

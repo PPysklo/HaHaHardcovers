@@ -15,6 +15,9 @@ def test1View(request):
 def test2View(request):
     return render(request, 'test2.html')
 
+def cartView(request):
+    return render(request, 'cartForm.html')
+
 
 def stuffList(request):
     
