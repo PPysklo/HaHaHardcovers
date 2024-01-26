@@ -9,6 +9,7 @@ class BookForm(ModelForm):
         
         widgets = {
             'tags' : forms.CheckboxSelectMultiple(),
+            'description': forms.Textarea(attrs={'rows':4, 'cols':15})
         }
     
     def __init__(self, *args, **kwargs):

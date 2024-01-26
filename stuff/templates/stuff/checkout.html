@@ -1,0 +1,25 @@
+{% load static %}
+<!-- {% block checkout %} -->
+<div>
+    <div>
+        <div>
+            <h1>Podsumowanie</h1>
+            <div>
+                {% for item in items %}
+                    <div>{% if item.book.imageURL %}
+                            <img src="{{ item.book.imageURL }}" alt="">
+                        {% else %}
+                            <img src="{% static 'images/blank.png' %}" alt="">
+                        {% endif %}
+                    </div>
+                    <div>{{item.book.name}}</div>
+                    <div>{{item.book.price|floatformat:2}} zł</div>
+                    <div>{{item.quantity}}</div>
+                {% endfor %}
+                <h3>Ilość przedmiotów {{order.get_cart_items}}</h3>
+                <h3>Łącznie {{order.get_cart_total|floatformat:2}} zł</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- {% endblock checkout %} -->

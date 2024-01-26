@@ -1,12 +1,20 @@
 {% extends 'index.html' %}
-
+{% load static %}
 {% block stuff %}
     {% for book in books %}
     <li>
-        <img src="#" alt="Book 1">
+      {% if book.imageURL %}
+        <img src="{{ book.imageURL }}" alt="">
+      {% else %}
+        <img src="{% static 'images/blank.png' %}" alt="">
+      {% endif %}
       <a class="read-more-button" href="#">
         {{book.title}}
       </a>
+      {{book.author}}<br/>
+      {{book.price|floatformat:2}} zł
+      
+      <a href="{% url 'stuff:update-book' pk=book.id %}">Update</a>
     </li>
     {% endfor %}
 {% endblock %}
