@@ -9,64 +9,19 @@
     <link rel="stylesheet" href="{% static 'styles\mainstyl.css' %}">
     <title>HaHaHardcovers</title>
 
-</head>
+    {% block nav %}
+    {% include 'stuff/navbar.html' %}
+    {% endblock nav %}
 
-<body>
-    <header>
-        <h1 class="navbar-brand">HaHaHardcovers</h1>
-        <div class="header-buttons">
-            <div id="searchBanner1" class="search-bar">
-                <input type="text" id="searchInput1" placeholder="Search...">
-                <button id="Button2" type="submit">Search</button>
-            </div>
-            <a href="{% url 'stuff:cart' %}" class="cart-link">🛒Koszyk</a>
-            <p>{{ cartitems }}</p>
-        {% if user.is_authenticated %}
-            <button id="Button1">
-                <a href="{% url 'users:user-profile' user.profile.id %}" class="category_bar_element">Profil</a>
-            </button>
-            {% if user.is_superuser %}
-            <button id="Button1">
-                <a href="{% url 'stuff:add_Book' %}" class="category_bar_element">Dodaj książkę</a>
-            </button>
-            {% endif %}
-        <button id="Button1">
-            <a href="{% url 'users:logout' %}" class="category_bar_element">Wyloguj</a>
-        </button>
-        {% else %}
-        <button id="Button1">
-            <a href="{% url 'users:login_Register' %}" class="category_bar_element">Zaloguj/Zarejestruj</a>
-        </button>
-        {% endif %}
-        </div>
-    </header>
 
-    <nav>
-        <a href="#">🏠Strona Główna</a>
-        <a href="#">📚Książki</a>
-        <a href="#">💻Ebooki</a>
-        <a href="#">📢Bestsellery</a>
-        <a href="#">🏷️Promocje</a>
-        <a href="#">📞Kontakt</a>
-    </nav>
-
-    <div class="sidebar">
-        <div class="top">
-            <h2>Kategorie Książek</h2>
-            <ul>
-                <li><a class="category_bar_element" href="#">Fantastyka</a></li>
-                <li><a class="category_bar_element" href="#">Dramat</a></li>
-                <li><a class="category_bar_element" href="#">Naukowe</a></li>
-                <li><a class="category_bar_element" href="#">Dla dzieci</a></li>
-            </ul>
-        </div>
-    </div>
     <section class="trend-section">
         <h2>Popularne</h2>
         <ul id="popular-book-list">
             {% block stuff %}
 
             {% endblock stuff %}
+
+            
         </ul>
     </section>
     </ul>

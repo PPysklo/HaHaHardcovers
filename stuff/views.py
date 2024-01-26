@@ -3,13 +3,14 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+import datetime
 
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
 from .forms import BookForm
 
-from .models import Books, Order, OrderItem
+from .models import Books, Order, OrderItem, ShippingAddress
 
 
 def test1View(request):
@@ -22,7 +23,7 @@ def cartView(request):
     return render(request, 'cart.html')
 
 def navView(request):
-    return render(request, 'navbar.html')
+    return render(request, 'stuff/navbar.html')
 
 
 def stuffList(request):
@@ -135,3 +136,36 @@ def updateitem(request):
         orderItem.delete()
 
     return JsonResponse('Item was added', safe=False)
+
+
+def processOrder(request):
+    transaction_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
+    
+    
+    if request.user.is_authenticated:
+        customer = request.user.profile
+        order, created = Order.objects.get_or_create(customer=customer, complete = False)
+        total = float(data['form']['total'])
+        order.transaction_id = transaction_id
+        
+        if total == order.get_cart_total:
+            order.complete = True
+        order.save()
+        
+        
+        if order.shipping == True:
+            ShippingAddress.objects.create(
+            customer=customer,
+            order=order,
+            address=data['shipping']['address'],
+            city=data['shipping']['city'],
+            state=data['shipping']['state'],
+            zipcode=data['shipping']['zipcode'],
+		)
+        
+    else:
+        print("User is not logged in ")
+    
+    
+    return JsonResponse("Pyment submitted", safe=False)

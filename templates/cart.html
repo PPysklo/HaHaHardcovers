@@ -56,7 +56,11 @@
                     <div class="col text-right">PLN cena</div>
                     
                 </div>
-                <button class="btn"><a href="{% url 'stuff:checkout' %}">Podsumowanie</a></button>
+                {% if items %}
+    
+                    <button class="btn" id="btn_checkout"><a id="btn_checkout" href="{% url 'stuff:checkout' %}" style="color: aliceblue;">Podsumowanie</a></button>
+
+                {% endif %}
             </div>
         </div>
         
@@ -83,4 +87,8 @@
     const csrftoken = getCookie('csrftoken');
 </script>
 <script type="text/javascript" src="{% static 'scripts/cart.js' %}"></script>
+
+
+
 </html>
+
