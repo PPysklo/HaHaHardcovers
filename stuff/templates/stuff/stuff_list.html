@@ -13,8 +13,11 @@
       </a>
       {{book.author}}<br/>
       {{book.price|floatformat:2}} zł
-      
-      <a href="{% url 'stuff:update-book' pk=book.id %}">Update</a>
+      {% if user.is_superuser %}
+        <a href="{% url 'stuff:update-book' pk=book.id %}">Update</a>
+      {% endif %}
+      <button data-book="{{book.id}}" data-action="add" class="addItem">Dodaj do koszyka</button>
     </li>
+
     {% endfor %}
 {% endblock %}

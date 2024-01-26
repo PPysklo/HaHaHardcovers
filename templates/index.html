@@ -20,6 +20,7 @@
                 <button id="Button2" type="submit">Search</button>
             </div>
             <a href="{% url 'stuff:cart' %}" class="cart-link">🛒Koszyk</a>
+            <p>{{ cartitems }}</p>
         {% if user.is_authenticated %}
             <button id="Button1">
                 <a href="{% url 'users:user-profile' user.profile.id %}" class="category_bar_element">Profil</a>
@@ -74,37 +75,39 @@
     <footer>
         &copy; 2023 HaHaHardcovers
     </footer>
-
-</body>
-
-</html>
+    
+<script type="text/javascript" src="{% static 'scripts/nav.js' %}"></script>
+<script type="text/javascript" src="{% static 'scripts/cart.js' %}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var header = document.querySelector("header");
-        var nav = document.querySelector("nav");
-        var offset = header.offsetHeight;
-    
-        function toggleFixedHeader() {
-            if (window.scrollY > offset) {
-                header.classList.add("fixed-header");
-                nav.style.marginTop = offset + "px";
-            } else {
-                header.classList.remove("fixed-header");
-                nav.style.marginTop = "0";
+    var user = '{{request.user}}'
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
             }
         }
-    
-        window.addEventListener("scroll", toggleFixedHeader);
-        toggleFixedHeader();
-    });
-    </script>
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+</script>
+</body>
+</html>
+
 
 
 {% for message in messages %}
     {% if message.tags == 'info' %}
         <!-- sweetalert js -->
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             var m = "Wylogowano";
             Swal.fire({
@@ -120,11 +123,10 @@
                 });
         </script> 
     {% else %}
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             var m = "Pomyslnie zalogowano";
             Swal.fire({
-            position: "top-centre",
+            position: "centre",
             icon: "success",
             title: m,
             showConfirmButton: false,
