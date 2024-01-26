@@ -1,41 +1,146 @@
-<!DOCTYPE html>
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'styles\test1style.css' %}">
-    <title>Admin Panel</title>
-</head>
-<body>
-    <div class="admin-container">
-        <header class="admin-header">
-            <h1>Admin Panel/Edit book</h1>
-            <Button id="Button1">Logout</Button>
-        </header>
-        <aside class="admin-sidebar">
-            <nav>
-                <a href="#" class="category_bar_element">Edit Book</a>
-            </nav>
-            <nav>
-                <a href="#" class="category_bar_element">Delete Book</a>
-                <!--Wiecej opcji-->
-            </nav>
-        </aside>
-        <div class="admin-div">
-            <!-- Tu co w srodku-->
-            <h2>Edytuj książkę</h2>
-            <form>
-           
-                <!--Dodanie opcji-->
+<!DOCTYPE html>
+<html>
 
-                <button type="submit">Edit book</button>
-            </form>
-        </div>
-        <footer class="admin-footer">
-            &copy; 2024 Admin Panel
-        </footer>
-    </div>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'styles\navbarstyle.css' %}">
+    <style>
+
+        .book-container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+        }
+
+        .book-image {
+            float: left;
+            width: 40%;
+        }
+
+        .book-image img {
+            width: 100%;
+            height: auto;
+            outline: 5px solid #000;
+        }
+
+        .book-details {
+            float: left;
+            width: 60%;
+            padding: 20px;
+        }
+
+        .book-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .book-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .book-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .buy-now-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #491e66;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #fff;
+            color: #491e66;
+            outline: 2px solid #491e66;
+        }
+    </style>
+</head>
+
+<body>
+    <body>
+        <header>
+            <h1 class="navbar-brand">HaHaHardcovers</h1>
+            <div class="header-buttons">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Wyszukaj" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">🔎</button>
+                  </form>
+                <a href="#" class="cart-link">🛒Koszyk</a>
+            {% if user.is_authenticated %}
+                <button type="button" class="btn btn-outline-light mx-1">
+                    <a href="{% url 'users:user-profile' user.profile.id %}" class="category_bar_element">Profil</a>
+                </button>
+                {% if user.is_superuser %}
+                <button type="button" class="btn btn-outline-light mx-1">
+                    <a href="{% url 'stuff:add_Book' %}" class="category_bar_element">Dodaj książkę</a>
+                </button>
+                {% endif %}
+            <button class="btn btn-outline-light mx-1">
+                <a href="{% url 'users:logout' %}" class="category_bar_element">Wyloguj</a>
+            </button>
+            {% else %}
+            <button class="btn btn-outline-light mx-1">
+                <a href="{% url 'users:login_Register' %}" class="category_bar_element">Zaloguj/Zarejestruj</a>
+            </button>
+            {% endif %}
+            </div>
+        </header>
+    
+        <nav>
+            <a href="#">🏠Strona Główna</a>
+                <a href="#" data-bs-toggle="dropdown">
+                    📚Kategorie
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+            <a href="#">📖Książki</a>
+            <a href="#">💻Ebooki</a>
+            <a href="#">📢Bestsellery</a>
+            <a href="#">🏷️Promocje</a>
+            <a href="#">📞Kontakt</a>
+        </nav>
+
+
+
+        <div class="book-container">
+            <div class="book-image">
+                <img src="{% static 'images/blank.png' %}" alt="Okładka książki">
+            </div>
+            <div class="book-details">
+                <div class="book-title">Tytuł Książki</div>
+                <div class="book-description">
+                    Opis książki.
+                    Opis książki.
+                    Opis książki.
+                </div>
+                <div class="book-price">Cena: $19.99</div>
+                <a href="#" class="buy-now-btn">Kup Teraz</a>
+            </div>
+            
+
 </body>
+
 </html>
