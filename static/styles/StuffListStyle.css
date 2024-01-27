@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+
+
+#popular-book-list {
+    list-style: none;
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+#popular-book-list img {
+    width: 10rem;
+    height: 10rem;
+}
+
+@media (max-width: 768px) {
+    #popular-book-list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    }
+}
+.category_bar_element{
+    text-decoration: none;
+    color: #fff;
+}
+
+.read-more-button {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #491e66;
+    opacity: .8;
+    padding: 3px 8px;
+    border-radius: 5px;
+    transition: 1s;
+}
+
+.read-more-button:hover {
+    background-color: #fff;
+    
+}
+.updateButton {
+    background-color: #491e66;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    text-decoration: none;
+    transition: 1s;
+}
+
+.updateButton:hover {
+    background-color: #fff;
+    color: #491e66;
+}
+
+.addItem {
+    background-color: #491e66;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    text-decoration: none;
+    transition: 1s;
+}
+
+.addItem:hover {
+    background-color: #fff;
+    color: #491e66;
+}
+h1 {
+    text-align: center;
+    color: #491e66;
+    margin-bottom: 10px;
+}

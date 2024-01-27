@@ -60,7 +60,7 @@ def stuffList(request):
         print(books)
    
   
-    custom_range, books = paginateProjects(request, books, 3)
+    custom_range, books = paginateProjects(request, books, 8)
     
     if request.user.is_authenticated:
         customer = request.user.profile

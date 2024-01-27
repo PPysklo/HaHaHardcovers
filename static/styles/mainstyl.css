@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 header{
@@ -118,54 +117,4 @@ footer {
 .trend-section li img,
 .trend-section li a {
     opacity: 1;
-}
-#popular-book-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    text-align: center;
-    align-items: center;
-}
-
-#popular-book-list img {
-    width: 50%;
-    height: 50%;
-}
-.read-more-button {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #491e66;
-    opacity: .8;
-    padding: 3px 8px;
-    border-radius: 5px;
-    transition: 1s;
-}
-
-.read-more-button:hover {
-    background-color: #9c86aa;
-}
-@media (max-width: 768px) {
-    #popular-book-list {
-    grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-.sidebar{
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 250px;
-    background-color: #491e66;
-    padding: 0.4rem 0.8rem;
-    color: #fff;
-}
-
-.category_bar_element{
-    text-decoration: none;
-    color: #fff;
 }

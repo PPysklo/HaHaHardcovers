@@ -1,8 +1,11 @@
 {% extends 'index.html' %}
 {% load static %}
 {% block stuff %}
-<h2>Popularne</h2>
+<link rel="stylesheet" href="{% static 'styles\StuffListStyle.css' %}">
+<div class="container">
+  <h1>Popularne:</h1>
 
+  <ul id="popular-book-list" class="box-grid">
     {% for book in books %}
     <li>
       {% if book.image %}
@@ -16,10 +19,12 @@
       Autor: {{book.author}}<br/>
       Cena: {{book.price|floatformat:2}} zł<br/>
       {% if user.is_superuser %}
-        <a href="{% url 'stuff:update-book' pk=book.id %}">Update</a>
+        <a href="{% url 'stuff:update-book' pk=book.id %}" class="updateButton">Update</a>
       {% endif %}
       <button data-book="{{book.id}}" data-action="add" class="addItem">Dodaj do koszyka</button>
     </li>
     {% endfor %}
+  </ul>
 
+</div>
 {% endblock %}

@@ -1,4 +1,6 @@
+{% load static %}
 {% if queryset.has_other_pages%}
+<link rel="stylesheet" href="{% static 'styles\pagination.css' %}">
     <div class="pagination">
       <ul class="container">
 
