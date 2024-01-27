@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+
+.book-container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.book-image {
+    float: left;
+    width: 40%;
+}
+
+.book-image img {
+    width: 100%;
+    height: auto;
+    outline: 5px solid #000;
+}
+
+.book-details {
+    float: left;
+    width: 60%;
+    padding: 20px;
+}
+
+.book-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.book-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.book-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.buy-now-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #491e66;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.buy-now-btn:hover {
+    background-color: #fff;
+    color: #491e66;
+    outline: 2px solid #491e66;
+}

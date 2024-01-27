@@ -1,16 +1,16 @@
 
 {% load static %}
-<link rel="stylesheet" href="{% static 'styles/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'styles/checkoutstyle.css' %}">
 <!-- {% block checkout %} -->
 
 
 <div>
     <div>
         <div>
-            <h1>Podsumowanie</h1>
-            <div>
+            <h1>Podsumowanie:</h1>
+            <div class="summary">
                 {% for item in items %}
-                    <div>{% if item.book.imageURL %}
+                    <div class="image-cont">{% if item.book.imageURL %}
                             <img src="{{ item.book.imageURL }}" alt="">
                         {% else %}
                             <img src="{% static 'images/blank.png' %}" alt="">
@@ -38,12 +38,15 @@
                             </div>
                         </div>
                         
-                        <div id="shipping-info">
+                        <div class="shipping-info">
                             <hr>
                             <p>Shipping Information:</p>
                             <hr>
                             <div class="form-field">
                                 <input class="form-control" type="text" name="address" placeholder="Address..">
+                            </div>
+                            <div class="form-field">
+                                <input class="form-control" type="text" name="country" placeholder="Country..">
                             </div>
                             <div class="form-field">
                                 <input class="form-control" type="text" name="city" placeholder="City..">
@@ -54,9 +57,7 @@
                             <div class="form-field">
                                 <input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
                             </div>
-                            <div class="form-field">
-                                <input class="form-control" type="text" name="country" placeholder="Zip code..">
-                            </div>
+
                         </div>
     
                         <hr>
