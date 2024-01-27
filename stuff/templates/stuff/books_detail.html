@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    <link rel="stylesheet" href="{% static 'styles\BookPageStyle.css' %}">
+
+
+<body>
+    {% block navbar %}
+    {% endblock navbar %}
+
+        <div class="book-container">
+            <div class="book-image">
+                {% if object.image %}
+                    <img src="{{ object.image.url }}" alt="">
+                {% else %}
+                    <img src="{% static 'images/blank.png' %}" alt="">
+                {% endif %}
+            </div>
+            <div class="book-details">
+                <div class="book-title">{{object.title}}</div>
+                <div class="book-description">
+                    {{object.description}}
+                </div>
+                <div class="book-price">Cena: {{object.price}} zł</div>
+
+                <button data-book="{{book.id}}" data-action="add" class="addItem buy-now-btn">Dodaj do koszyka</button>
+
+            </div>
+            
+
+</body>
+
+</html>
+{% endblock content %}

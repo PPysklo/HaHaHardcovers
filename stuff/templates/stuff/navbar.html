@@ -15,14 +15,14 @@
 <body>
     <body>
         <header>
-            <h1 class="navbar-brand">HaHaHardcovers</h1>
+            <h1 class="navbar-brand"><a style="text-decoration: none; color:whitesmoke;" href="{%url 'stuff:stuff_list' %}">HaHaHardcovers</a></h1>
             <div class="header-buttons">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Wyszukaj" aria-label="Search">
+                <form class="d-flex" role="search" method="get" action="{% url 'stuff:stuff_list' %}">
+                    <input class="form-control me-2" type="search" placeholder="Wyszukaj" name ="search_query" aria-label="Search" value="{{search_query}}">
                     <button class="btn btn-outline-light" type="submit">🔎</button>
                   </form>
                   <a href="{% url 'stuff:cart' %}" class="cart-link">🛒Koszyk</a>
-                  <p>{{ cartitems }}</p>
+                  <h2>{{ cartitems }}</h2>
               {% if user.is_authenticated %}
                   <button id="Button1">
                       <a href="{% url 'users:user-profile' user.profile.id %}" class="category_bar_element">Profil</a>
@@ -44,14 +44,19 @@
         </header>
     
         <nav>
-            <a href="#">🏠Strona Główna</a>
+            <a href="{% url 'stuff:stuff_list' %}">🏠Strona Główna</a>
                 <a href="#" data-bs-toggle="dropdown">
                     📚Kategorie
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    {% for tag in tags %}
+                    <form class="d-flex" role="search" method="get" action="{% url 'stuff:stuff_list' %}">
+
+                        <button></button><input class="form-control me-2" type="submit" name ="category"  value="{{tag.name}}">
+
+                    </form>
+                    {% endfor %}
+                        
                   </ul>
             <a href="#">📖Książki</a>
             <a href="#">💻Ebooki</a>

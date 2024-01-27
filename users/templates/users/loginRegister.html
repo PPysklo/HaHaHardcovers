@@ -68,7 +68,7 @@
                     <p style="color: red;">{{error}}</p>
                 {% endfor %}
 
-                <a href="#">Zapomniałeś hasła?</a>
+                <a href="{% url 'reset_password' %}">Zapomniałeś hasła?</a>
                 <button type="submit" value="login"><input type="hidden" name="login">Zaloguj</button>
                 <button type="submit">Wróć na stronę główną</button>
             </form>

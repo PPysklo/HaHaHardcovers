@@ -6,9 +6,7 @@ for (var i = 0; i < addBtns.length ; i++  ){
         console.log("dasd")
         var bookId = this.dataset.book
         var action = this.dataset.action
-        console.log(bookId, "  ", action)
 
-        console.log(user)
         if(user === 'AnonymousUser'){
             console.log("User is not authenticated")
         }
@@ -19,7 +17,7 @@ for (var i = 0; i < addBtns.length ; i++  ){
 }
 
 function updateUserOrder(bookId, action){
-	console.log('User is authenticated, sending data...')
+
 
 		var url = '/update_item/'
 

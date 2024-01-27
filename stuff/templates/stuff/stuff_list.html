@@ -1,23 +1,25 @@
 {% extends 'index.html' %}
 {% load static %}
 {% block stuff %}
+<h2>Popularne</h2>
+
     {% for book in books %}
     <li>
-      {% if book.imageURL %}
-        <img src="{{ book.imageURL }}" alt="">
+      {% if book.image %}
+        <img src="{{ book.image.url }}" alt="">
       {% else %}
         <img src="{% static 'images/blank.png' %}" alt="">
       {% endif %}
-      <a class="read-more-button" href="#">
+      <a class="read-more-button" href="{% url 'stuff:book_detail' pk=book.id%}">
         {{book.title}}
       </a>
-      {{book.author}}<br/>
-      {{book.price|floatformat:2}} zł
+      Autor: {{book.author}}<br/>
+      Cena: {{book.price|floatformat:2}} zł<br/>
       {% if user.is_superuser %}
         <a href="{% url 'stuff:update-book' pk=book.id %}">Update</a>
       {% endif %}
       <button data-book="{{book.id}}" data-action="add" class="addItem">Dodaj do koszyka</button>
     </li>
-
     {% endfor %}
+
 {% endblock %}

@@ -1,22 +1,29 @@
 {% extends 'stuff/book_form.html' %}
 {% load static %}
 {% block addBook %}
-
-            <form method="POST">
+        <h2 class="content-center">Dodaj nową książkę</h2>
+            <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 {% for field in form %}
-                <div style="border: 2px solid black;">
+                <div class="form-container sign-in">
+
                     <div class="admin-add-book">
-                        <label for="">{{field.label}} </label>
-                        {{field}}
+                        {% if field.label == 'Tags' %}
+                            {% for tag in field %}
+                            <p>{{tag}}</p>
+                            {% endfor %}
+                        {% else %}
+                            <label for="">{{field.label}} </label>
+                            <p class="input input--text" id="formInput#text">{{field}}</p>
+                        {% endif %}
                     </div>
                 </div>
                 {% endfor %}
                
                 <div>
                     <button type="submit" id="Button1">Add Book</button>
-                    <button id="Button1">Cofnij na stronę główną</button>
+
                 </div>
             </form>
             

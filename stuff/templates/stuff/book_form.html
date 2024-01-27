@@ -14,7 +14,8 @@
             <div class="col-md-8 cart"> 
                 <div class="row border-top border-bottom">
                     <div class="row main align-items-center">
-                        <h2 class="content-center">Dodaj nową książkę</h2>
+                        
+                        <h3 class="content-center"><a href="{% url 'stuff:stuff_list' %}">Powrót</a></h3>
 
             {% block updateBook %}
 
@@ -23,6 +24,10 @@
             {% block addBook %}
 
             {% endblock addBook %}
+
+
+            {% block content %}
+            {% endblock content %}
                     </div>
                 </div>
             </div>

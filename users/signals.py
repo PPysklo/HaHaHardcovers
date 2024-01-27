@@ -17,16 +17,16 @@ def createProfile(sender, instance, created, **kwargs):
             email=user.email,
         )
         
-        # subject = 'Welcome to DevSearch'
-        # message = 'We are glad you are here!'
+        subject = 'Witamy na naszej stronie!'
+        message = 'Witamy na naszej stronie!'
         
-        # send_mail(
-        #     subject,
-        #     message,
-        #     settings.EMAIL_HOST_USER,
-        #     [profile.email],
-        #     fail_silently=False,
-        # )
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            [profile.email],
+            fail_silently=False,
+        )
 
 def updateUser(sender, instance, created, **kwargs):
     profile = instance

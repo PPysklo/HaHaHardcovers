@@ -4,13 +4,14 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 import datetime
+from django.shortcuts import get_object_or_404
 
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
 from .forms import BookForm
-
-from .models import Books, Order, OrderItem, ShippingAddress
+from .utils import searchProject, paginateProjects
+from .models import Books, Order, OrderItem, ShippingAddress, Tag
 
 
 def test1View(request):
@@ -31,7 +32,35 @@ def strona1View(request):
 def strona2View(request):
     return render(request, 'strona2.html')
 
+
+
+
+
+
+
+
+
+
+
+
+
 def stuffList(request):
+    # books = Books.objects.all()
+    books, search_query = searchProject(request)
+    print(request.GET)
+    tags = Tag.objects.all()
+    if request.GET.get('category'):
+        category_name = request.GET['category']
+        
+        # Get the tag object corresponding to the category name
+        category_tag = get_object_or_404(Tag, name=category_name)
+
+        # Filter books that have the specified tag
+        books = books.filter(tags=category_tag)
+        print(books)
+   
+  
+    custom_range, books = paginateProjects(request, books, 3)
     
     if request.user.is_authenticated:
         customer = request.user.profile
@@ -43,11 +72,13 @@ def stuffList(request):
         order = {'get_cart_total':0 , 'get_cart_items':0, 'shipping': True}
         cartItems = order['get_cart_items']
         
-    books = Books.objects.all()
     
     context = {
         'books' : books,
+        'tags' : tags,
         'cartitems' : cartItems,
+        'search_query' : search_query,
+        'custom_range' : custom_range,
     }
     
     return render(request,'stuff/stuff_list.html', context)
@@ -60,13 +91,17 @@ def addBook(request):
     form = BookForm()
     
     if request.method == "POST":
-       
-        form = BookForm(request.POST)
+        tag = request.POST.get('tags')
+
+        form = BookForm(request.POST, request.FILES)
 
         if form.is_valid():
             book = form.save(commit=False)
             book.save()
-
+            
+            tag, created = Tag.objects.get_or_create(id=tag)
+            book.tags.add(tag)
+            
             return redirect('stuff:stuff_list')
 
     context = {'form':form}
@@ -88,6 +123,24 @@ def updateBook(request, pk):
     
     context = {'form': form ,'book': book}
     return render(request, 'stuff/update_book.html', context )
+
+@user_passes_test(lambda u: u.is_superuser, login_url='stuff:stuff_list')
+def deleteBook(request,pk):
+    print(pk)
+    book = Books.objects.get(id=pk)
+    
+    if request.method == 'POST':
+        book.delete()
+        return redirect('stuff:stuff_list')
+
+    context = {
+    'object' : book
+    }
+    return render(request,'delete_template.html',context=context)
+
+class DetailBook(DetailView):
+    model = Books
+
 
 def cart(request):
     

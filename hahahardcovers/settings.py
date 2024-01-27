@@ -122,14 +122,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
-MEDIA_URL = "/images/"
 MEDIA_ROOT = BASE_DIR / "static/images"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 # Default primary key field type
@@ -143,3 +144,12 @@ RECAPTCHA_PUBLIC_KEY = '6LemLEopAAAAAJYdYmbUUKcecUtx0kG_kMME9esa'
 RECAPTCHA_PRIVATE_KEY = '6LemLEopAAAAAL48g6YBvHSjzs5N80EPXqIbZk4x'
 
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'piotr.pysklo.1tb1@gmail.com'
+EMAIL_HOST_PASSWORD = 'tkkwfbjnbmjwrzry'
+EMAIL_USE_TLS = True

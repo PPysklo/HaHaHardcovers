@@ -15,18 +15,23 @@
 
 
     <section class="trend-section">
-        <h2>Popularne</h2>
         <ul id="popular-book-list">
             {% block stuff %}
 
             {% endblock stuff %}
-
             
+            
+           
         </ul>
-    </section>
-    </ul>
-    </section>
 
+        {% block content %}
+
+        
+        {% endblock %}
+    </section>
+</ul>
+    </section>
+    {% include 'pagination.html' with queryset=books custom_range=custom_range %}
     <footer>
         &copy; 2023 HaHaHardcovers
     </footer>

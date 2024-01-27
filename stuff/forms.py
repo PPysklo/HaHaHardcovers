@@ -1,11 +1,11 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Books, Review
+from .models import Books
 
 class BookForm(ModelForm):
     class Meta:
         model = Books
-        fields = ['author','title', 'description', 'price']
+        fields = ['author','title', 'description', 'price', 'image', 'tags']
         
         widgets = {
             'tags' : forms.CheckboxSelectMultiple(),
@@ -19,12 +19,3 @@ class BookForm(ModelForm):
         for name,field  in self.fields.items():
             field.widget.attrs.update({'class' : "bookFormField"})
 
-class ReviewForm(ModelForm):
-    class Meta:
-        model = Review
-        fields = ['value', 'body']
-
-        labels = {
-            'value': 'Postaw ocenę',
-            'body': 'Dodaj komentarz do oceny'
-        }
