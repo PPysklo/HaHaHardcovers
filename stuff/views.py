@@ -25,6 +25,11 @@ def cartView(request):
 def navView(request):
     return render(request, 'stuff/navbar.html')
 
+def strona1View(request):
+    return render(request, 'strona1.html')
+
+def strona2View(request):
+    return render(request, 'strona2.html')
 
 def stuffList(request):
     

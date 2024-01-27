@@ -43,6 +43,7 @@ img {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 10px rgb(0, 0, 0);
+    float: left;
 }
 #form-button {
     background-color: #491e66;
@@ -83,4 +84,8 @@ img {
     font-size: 16px;
     border: 1px solid #491e66;
     border-radius: 5px;
+}
+
+h1{
+    padding-left: 5%;
 }

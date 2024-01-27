@@ -18,7 +18,8 @@ urlpatterns = [
     path('checkout/', views.checkout,name='checkout'),
     path('update_item/', views.updateitem , name='update-item'),
     path('process_order/', views.processOrder , name='process-order'),
-    
+    path('strona1/', views.strona1View,name='s1'),
+    path('strona2/', views.strona2View,name='s2'),
     
     
     

@@ -16,9 +16,6 @@ body{
     font-size: 0.8rem;
     font-weight: bold;
 }
-.title{
-    margin-bottom: 5vh;
-}
 .card{
     margin: auto;
     max-width: 950px;
@@ -26,23 +23,11 @@ body{
     border-radius: 1rem;
     border: transparent;
 }
-@media(max-width:767px){
-    .card{
-        margin: 3vh auto;
-    }
-}
 .cart{
     background-color: #fff;
     padding: 4vh 5vh;
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
-}
-@media(max-width:767px){
-    .cart{
-        padding: 4vh;
-        border-bottom-left-radius: unset;
-        border-top-right-radius: 1rem;
-    }
 }
 .summary{
     background-color: #ddd;
@@ -50,12 +35,6 @@ body{
     border-bottom-left-radius: 1rem;
     padding: 4vh;
     color: rgb(65, 65, 65);
-}
-@media(max-width:767px){
-    .summary{
-    border-top-right-radius: unset;
-    border-bottom-left-radius: 1rem;
-    }
 }
 .summary .col-2{
     padding: 0;
