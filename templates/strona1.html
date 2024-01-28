@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'styles\kontaktstyle.css' %}">
+    <title>Kontakt</title>
+</head>
+<body>
+    <div class="card">
+        <div class="col-md-8 cart"> 
+             <div class="row border-top border-bottom">
+                <h3><a href="{% url 'stuff:stuff_list' %}">Powrót</a></h3>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <h4>Piotr Pyskło 10511</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4>Szymon Włodkowski 10522</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4>Sebastian Kadłubowski 10493</h4>
+                </div>
+            </div>
+         </div>
+    </div>
+</body>
+</html>

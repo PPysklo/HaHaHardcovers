@@ -10,6 +10,7 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'styles\navbarstyle.css' %}">
+
 </head>
 
 <body>
@@ -23,7 +24,7 @@
                   </form>
                   <a href="{% url 'stuff:cart' %}" class="cart-link">🛒Koszyk</a>
                   <div>
-                  <h2>{{ cartitems }}</h2>
+                  <div class="circle">{{ cartitems }}</div>
                 </div>
               {% if user.is_authenticated %}
                   {% if user.is_superuser %}
