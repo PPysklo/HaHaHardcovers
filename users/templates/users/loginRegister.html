@@ -19,13 +19,6 @@
             <form method='POST'>
                 {% csrf_token %}
                 <h1>Stwórz konto!</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-discord"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
                 <span>lub skorzystaj z rejestracji za pomocą adresu Email</span>
                 
                 {% for field in form %}
@@ -35,7 +28,7 @@
                     {% endfor %}
                 {% endfor %}
 
-            <!-- {{ captcha.captcha }} -->
+                {{ captcha.captcha }}
                 <button type="submit" value="register" id="registerbtn"><input type="hidden" name="register">Zarejestruj</button>
                 <button>Wróć na stronę główną</button>
             </form>
@@ -45,23 +38,14 @@
             <form method='POST'>
                 {% csrf_token %}
                 <h1>Zaloguj się!</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-discord"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
                 <span>lub skorzystaj z danych użytkownika</span>
                 <input class="input input--text" id="formInput#text" 
                     type="text" name="username"
                     placeholder="Enter your username..." />
 
-
                 <input class="input input--password" id="formInput#passowrd" 
                     type="password" name="password"
                     placeholder="••••••••" />
-
 
                 {% for error in field.errors %}
                 <script>alert("{{ message }}")</script>
@@ -70,7 +54,7 @@
 
                 <a href="{% url 'reset_password' %}">Zapomniałeś hasła?</a>
                 <button type="submit" value="login"><input type="hidden" name="login">Zaloguj</button>
-                <button type="submit">Wróć na stronę główną</button>
+                <button type="submit"><a style="text-decoration: none; color:aliceblue;" href="{% url 'stuff:stuff_list' %}">Wróć na stronę główną</a></button>
             </form>
         </div>
         <div class="toggle-container">

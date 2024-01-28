@@ -6,7 +6,7 @@ from users.models import Profile
 
 class Books(models.Model):
     author = models.CharField(max_length= 100, default = None)
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=255)
     description = models.TextField(null=True,blank=True)
     price = models.DecimalField(max_digits=5, decimal_places  = 2, default = None)
     tags = models.ManyToManyField('Tag',blank=True)

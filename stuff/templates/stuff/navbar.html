@@ -22,11 +22,10 @@
                     <button class="btn btn-outline-light" type="submit">🔎</button>
                   </form>
                   <a href="{% url 'stuff:cart' %}" class="cart-link">🛒Koszyk</a>
+                  <div>
                   <h2>{{ cartitems }}</h2>
+                </div>
               {% if user.is_authenticated %}
-                  <button id="Button1">
-                      <a href="{% url 'users:user-profile' user.profile.id %}" class="category_bar_element">Profil</a>
-                  </button>
                   {% if user.is_superuser %}
                   <button id="Button1">
                       <a href="{% url 'stuff:add_Book' %}" class="category_bar_element">Dodaj książkę</a>
@@ -52,16 +51,12 @@
                     {% for tag in tags %}
                     <form class="d-flex" role="search" method="get" action="{% url 'stuff:stuff_list' %}">
 
-                        <button></button><input class="form-control me-2" type="submit" name ="category"  value="{{tag.name}}">
+                    <input class="form-control" type="submit" name ="category"  value="{{tag.name}}">
 
                     </form>
                     {% endfor %}
                         
                   </ul>
-            <a href="#">📖Książki</a>
-            <a href="#">💻Ebooki</a>
-            <a href="#">📢Bestsellery</a>
-            <a href="#">🏷️Promocje</a>
             <a href="#">📞Kontakt</a>
         </nav>
 </body>
