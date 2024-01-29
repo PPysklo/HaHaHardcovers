@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles\cartstyle.css' %}">
     
-    <title>Koszyk</title>
+    <title>Document</title>
 </head>
 <body>
     <div class="card">
@@ -28,17 +28,18 @@
                             <img src="{% static 'images/blank.png' %}" alt="">
                         {% endif %}
                     </div>
-                        <div class="row">
-                            <h1>{{item.book.title}}</h1>
-                            <p>{{item.book.price|floatformat:2}}</p>
-                            <p>Łącznie {{item.get_total}}</p>
-
-                            <img data-book="{{item.book.id}}" data-action="add" class="addItem" src="{% static  'images/up.png' %}">
-
-                            <img data-book="{{item.book.id}}" data-action="remove" class="addItem" src="{% static  'images/down.png' %}">
-
+                        <div>
+                            <div class="item-details">
+                                <h1>{{item.book.title}}</h1>
+                                <p>{{item.book.price|floatformat:2}}</p>
+                                <p>Łącznie {{item.get_total}}</p>
+                            </div>
+                            <div class="item-actions">
+                                <p>Ilość: {{item.quantity}}</p>
+                                <img data-book="{{item.book.id}}" data-action="add" class="addItem" src="{% static  'images/up.png' %}">
+                                <img data-book="{{item.book.id}}" data-action="remove" class="addItem" src="{% static  'images/down.png' %}">
+                            </div>
                         </div>
-                        <p>Ilość: {{item.quantity}}</p>
                     {% endfor %}
                 {% else %}
                     <div class="col align-self-center text-right text-muted"><h3>Brak przedmiotów w koszyku</h3></div>

@@ -125,3 +125,17 @@ a:hover{
     background-position-x: 95%;
     background-position-y: center;
 }
+.item-details,
+.item-actions {
+    display: inline-block;
+    vertical-align: top; /* Dodatkowy atrybut, aby zachować wyrównanie pionowe */
+}
+
+.item-actions{
+    margin-left: 500px;
+}
+
+.addItem {
+    width: 25px; /* Dostosuj szerokość według potrzeb */
+    height: 25px; /* Dostosuj wysokość według potrzeb */
+}
