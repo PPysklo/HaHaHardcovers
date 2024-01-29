@@ -17,10 +17,12 @@
       </a>
       Autor: {{book.author}}<br/>
       Cena: {{book.price|floatformat:2}} zł<br/>
-      {% if user.is_superuser %}
-        <a href="{% url 'stuff:update-book' pk=book.id %}" class="updateButton">Edytuj</a>
-      {% endif %}
+      {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+          <a href="{% url 'stuff:update-book' pk=book.id %}" class="updateButton">Edytuj</a>
+        {% endif %}
       <button data-book="{{book.id}}" data-action="add" class="addItem">Dodaj do koszyka</button>
+      {% endif %}
     </li>
     {% endfor %}
   </ul>

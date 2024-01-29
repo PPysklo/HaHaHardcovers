@@ -14,34 +14,14 @@ from .utils import searchProject, paginateProjects
 from .models import Books, Order, OrderItem, ShippingAddress, Tag
 
 
-def test1View(request):
-    return render(request, 'bookForm.html')
-
-def test2View(request):
-    return render(request, 'test2.html')
-
-def cartView(request):
-    return render(request, 'cart.html')
-
-def navView(request):
-    return render(request, 'stuff/navbar.html')
-
-def strona1View(request):
-    return render(request, 'strona1.html')
-
-def strona2View(request):
-    return render(request, 'strona2.html')
 
 
+class DetailBook(DetailView):
+    model = Books
 
 
-
-
-
-
-
-
-
+def contactView(request):
+    return render(request, 'contactPage.html')
 
 
 def stuffList(request):
@@ -138,8 +118,6 @@ def deleteBook(request,pk):
     }
     return render(request,'delete_template.html',context=context)
 
-class DetailBook(DetailView):
-    model = Books
 
 
 def cart(request):

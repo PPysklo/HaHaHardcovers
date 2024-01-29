@@ -11,7 +11,7 @@
                     <div class="admin-add-book">
                         {% if field.label == 'Tags' %}
                             {% for tag in field %}
-                            <p>{{tag}}</p>
+                                {{tag}}
                             {% endfor %}
                         {% else %}
                             <label for="">{{field.label}} </label>

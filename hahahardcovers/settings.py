@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     
     'users.apps.UsersConfig',
     'stuff.apps.StuffConfig',
+
     'django_recaptcha',
     'sweetify',
     'bootstrap5',

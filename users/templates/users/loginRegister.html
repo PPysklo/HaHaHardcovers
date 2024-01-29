@@ -28,7 +28,7 @@
                     {% endfor %}
                 {% endfor %}
 
-                {{ captcha.captcha }}
+                {{captcha.captcha}}
                 <button type="submit" value="register" id="registerbtn"><input type="hidden" name="register">Zarejestruj</button>
                 <button>Wróć na stronę główną</button>
             </form>
@@ -46,7 +46,8 @@
                 <input class="input input--password" id="formInput#passowrd" 
                     type="password" name="password"
                     placeholder="••••••••" />
-
+                    
+                {{captcha.captcha}}
                 {% for error in field.errors %}
                 <script>alert("{{ message }}")</script>
                     <p style="color: red;">{{error}}</p>
@@ -71,17 +72,19 @@
                 </div>
             </div>
         </div>
+
     </div>
 </body>
 <script src="{% static 'scripts/loginscript.js' %}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>
 
 
 {% for message in messages %}
+    <p>{{message}}</p>
     {% if message.tags != 'success' %}
             <!-- sweetalert js -->
-            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
             <script>
             var m = "Niepoprawne dane logownia";
             Swal.fire({

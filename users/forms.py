@@ -2,8 +2,9 @@ from django import forms
 
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import PasswordInput
+
 from django_recaptcha.fields import ReCaptchaField
-from django.forms import TextInput,EmailInput,PasswordInput
 
 from django.contrib.auth import get_user_model
 User = get_user_model()
@@ -28,7 +29,8 @@ class CustomUserCreationForm(UserCreationForm):
         self.fields['password2'].widget = PasswordInput(attrs={'placeholder': 'Password confirmation'})            
 
 
-class FormWithCaptcha(forms.Form):
-    name = forms.EmailField()
+
+
+class CaptchaForm(forms.Form):
     captcha = ReCaptchaField()
     
