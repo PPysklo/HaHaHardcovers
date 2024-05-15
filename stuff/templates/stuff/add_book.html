@@ -1,32 +1,43 @@
 {% extends 'stuff/book_form.html' %}
 {% load static %}
 {% block addBook %}
-        <h2 class="content-center">Dodaj nową książkę</h2>
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-
-                {% for field in form %}
-                <div class="form-container sign-in">
-
-                    <div class="admin-add-book">
-                        {% if field.label == 'Tags' %}
-                            {% for tag in field %}
-                                {{tag}}
-                            {% endfor %}
-                        {% else %}
-                            <label for="">{{field.label}} </label>
-                            <p class="input input--text" id="formInput#text">{{field}}</p>
-                        {% endif %}
-                    </div>
+<div class="card">
+    <div class="row">
+        <div class="col-md-8 cart"> 
+            <div class="row border-top border-bottom">
+                <div class="row main align-items-center">
+                
+                    <h1 class="content-center">Dodaj nową książkę</h1> <br>
+                    <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <div class="form-container sign-in">
+                            <div class="admin-add-book">
+                                {% if field.label == 'Tags' %}
+                                    {% for tag in field %}
+                                        {{tag}}
+                                    {% endfor %}
+                                {% else %}
+                                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                    {{ field }}
+                                    {% if field.errors %}
+                                        <div class="invalid-feedback">
+                                            {% for error in field.errors %}
+                                                {{ error }}
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <div>
+                            <button type="submit" class="buy-now-btn" id="Button1">Add Book</button>
+                        </div>
+                    </form>
                 </div>
-                {% endfor %}
-               
-                <div>
-                    <button type="submit" id="Button1">Add Book</button>
-
-                </div>
-            </form>
-            
-
-
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock addBook %}

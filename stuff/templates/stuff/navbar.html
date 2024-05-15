@@ -16,7 +16,7 @@
 <body>
     <body>
         <header>
-            <h1 class="navbar-brand"><a style="text-decoration: none; color:whitesmoke;" href="{%url 'stuff:stuff_list' %}">HaHaHardcovers</a></h1>
+            <h1 class="navbar-brand"><a style="text-decoration: none;" href="{%url 'stuff:stuff_list' %}">HaHaHardcovers</a></h1>
             <div class="header-buttons">
                 <form class="d-flex" role="search" method="get" action="{% url 'stuff:stuff_list' %}">
                     <input class="form-control me-2" type="search" placeholder="Wyszukaj" name ="search_query" aria-label="Search" value="{{search_query}}">

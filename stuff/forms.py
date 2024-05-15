@@ -1,4 +1,5 @@
 from django.forms import ModelForm
+
 from django import forms
 from .models import Books
 
@@ -9,7 +10,7 @@ class BookForm(ModelForm):
         
         widgets = {
             'tags' : forms.CheckboxSelectMultiple(),
-            'description': forms.Textarea(attrs={'rows':7, 'cols':53})
+            'description': forms.Textarea(attrs={'rows':7, 'cols':40})
         }
     
     def __init__(self, *args, **kwargs):
@@ -18,4 +19,3 @@ class BookForm(ModelForm):
         # self.fields['title'].widget.attrs.update({'class':'input',})
         for name,field  in self.fields.items():
             field.widget.attrs.update({'class' : "bookFormField"})
-

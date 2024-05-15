@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
+.li {
+    background-color: #14165a !important;
+}
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -10,18 +13,6 @@ body {
     flex-direction: column;
 }
 
-header{
-    background-color: #491e66;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    top: -100px;
-    transition: top 0.3s;
-}
 
 .header-buttons {
     display: flex;
@@ -71,7 +62,7 @@ header{
 nav {
     display: flex;
     justify-content: center;
-    background-color: #9c86aa;
+    background-color: #333333;
     padding: 10px;
     width: 100%;
 }
@@ -104,7 +95,7 @@ section {
 }
 
 footer {
-    background-color: #491e66;
+    background-color: #14165a;
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -114,7 +105,7 @@ footer {
 }
 
 .trend-section li{
-    background-color:#9c86aa;
+    background: linear-gradient(to top, #ffffff, #2d3867, #081c6c);
 }
 .trend-section li img,
 .trend-section li a {

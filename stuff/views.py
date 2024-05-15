@@ -27,17 +27,15 @@ def contactView(request):
 def stuffList(request):
     # books = Books.objects.all()
     books, search_query = searchProject(request)
-    print(request.GET)
+
     tags = Tag.objects.all()
     if request.GET.get('category'):
         category_name = request.GET['category']
-        
-        # Get the tag object corresponding to the category name
+
         category_tag = get_object_or_404(Tag, name=category_name)
 
-        # Filter books that have the specified tag
         books = books.filter(tags=category_tag)
-        print(books)
+
    
   
     custom_range, books = paginateProjects(request, books, 8)
@@ -78,9 +76,12 @@ def addBook(request):
         if form.is_valid():
             book = form.save(commit=False)
             book.save()
-            
-            tag, created = Tag.objects.get_or_create(id=tag)
-            book.tags.add(tag)
+            try:
+                tag = Tag.objects.get(id=tag)
+            except:
+                pass
+            if tag:
+                book.tags.add(tag)
             
             return redirect('stuff:stuff_list')
 
@@ -106,7 +107,7 @@ def updateBook(request, pk):
 
 @user_passes_test(lambda u: u.is_superuser, login_url='stuff:stuff_list')
 def deleteBook(request,pk):
-    print(pk)
+  
     book = Books.objects.get(id=pk)
     
     if request.method == 'POST':
@@ -151,9 +152,7 @@ def updateitem(request):
     data = json.loads(request.body)
     productId = data['bookId']
     action = data['action']
-    print(productId)
-    print(action)
-    
+
     
     customer = request.user.profile
     book = Books.objects.get(id=productId)

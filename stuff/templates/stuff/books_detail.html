@@ -11,27 +11,25 @@
 <body>
     {% block navbar %}
     {% endblock navbar %}
-
-        <div class="book-container">
-            <div class="book-image">
-                {% if object.image %}
-                    <img src="{{ object.image.url }}" alt="">
-                {% else %}
-                    <img src="{% static 'images/blank.png' %}" alt="">
-                {% endif %}
-            </div>
-            <div class="book-details">
-                <div class="book-title">{{object.title}}</div>
-                <div class="book-description">
-                    {{object.description}}
+    <body>
+        <div class="col-md-4">
+            <div class="book-container">
+                <div class="book-image">
+                    {% if object.image %}
+                        <img src="{{ object.image.url }}" alt="">
+                    {% else %}
+                        <img src="{% static 'images/blank.png' %}" alt="">
+                    {% endif %}
                 </div>
-                <div class="book-price">Cena: {{object.price}} zł</div>
-
-                <button data-book="{{object.id}}" data-action="add" class="addItem buy-now-btn">Dodaj do koszyka</button>
+                <div class="book-details">
+                    <div class="book-title">{{ object.title }}</div>
+                    <div class="book-description">
+                        {{ object.description }}
+                    </div>
+                    <div class="book-price">Cena: {{ object.price }} zł</div>
+                    <button data-book="{{ object.id }}" data-action="add" class="addItem buy-now-btn">Dodaj do koszyka</button>
+                </div>
             </div>
-            
-
-</body>
-
-</html>
+        </div>
+    </body>
 {% endblock content %}

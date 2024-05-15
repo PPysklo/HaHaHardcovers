@@ -34,7 +34,7 @@
     margin-top: 10px;
     text-decoration: none;
     color: #fff;
-    background-color: #491e66;
+    background-color: #081c6c;
     opacity: .8;
     padding: 3px 8px;
     border-radius: 5px;
@@ -46,7 +46,7 @@
     
 }
 .updateButton {
-    background-color: #491e66;
+    background-color: #081c6c;
     color: white;
     padding: 10px 20px;
     font-size: 16px;
@@ -65,7 +65,7 @@
 }
 
 .addItem {
-    background-color: #491e66;
+    background-color: #081c6c;
     color: white;
     padding: 10px 20px;
     font-size: 16px;
@@ -84,6 +84,6 @@
 }
 h1 {
     text-align: center;
-    color: #491e66;
+    color: #564263;
     margin-bottom: 10px;
 }

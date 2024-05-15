@@ -16,7 +16,7 @@ body {
 }
 
 header{
-    background-color: #491e66;
+    background: linear-gradient(to right, #ffffff, #2d3867, #081c6c);
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -80,7 +80,7 @@ button:hover {
 nav {
     display: flex;
     justify-content: center;
-    background-color: #9c86aa;
+    background: linear-gradient(to right, #ffffff, #2d3867, #081c6c);
     padding: 10px;
     width: 100%;
 }
@@ -109,7 +109,7 @@ nav a {
     color: #2ecc71;
   }
   .circle {
-    background:#9c86aa;
+    background:#081c6c;
     color: #fff;
     border-radius: 50%;
     width: 20px;
@@ -122,5 +122,9 @@ nav a {
     margin-left: -10px;
     margin-top: -20px;
   }
+
+.navbar-brand{
+    color: #081c6c;
+}
   
   
