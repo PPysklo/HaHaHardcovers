@@ -9,7 +9,8 @@
 *  - envname\scripts\activate
 * 3 - cd into project "cd HaHaHardcovers"
 * 4 - pip install -r requirements.txt
-* 5 - python manage.py runserver
+* 5 - add reCaptcha keys and SMTP email in settings.py
+* 6 - python manage.py runserver
 
 # Home Page
 <img src="./resources/images/index_page.JPG">
